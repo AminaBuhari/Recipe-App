@@ -4,7 +4,7 @@ class CreateFood < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :measurement_unit
       t.float :price, default: 0.0
-      t.int :quantity, default: 0
+      t.integer :quantity, default: 0
 
       t.timestamps
     end
