@@ -1,0 +1,7 @@
+<ul class="users">
+  <% @users.each do |user| %>
+    <%= link_to user_path(user) do %>
+      <%= render partial: 'partials/user', locals: { user: } %>
+    <% end %>
+  <% end %>
+</ul>

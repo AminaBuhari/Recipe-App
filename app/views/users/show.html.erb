@@ -1,0 +1,17 @@
+<%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+
+<div class="users__list">
+  <%= render partial: 'partials/user', locals: { user: @user } %>
+</div>
+
+<div class="bio">
+  <h4>Bio</h4>
+  <p><%= @user.bio %></p>
+</div>
+
+<% @posts.each.with_index(1) do |post, index| %>
+  <%= render partial: 'partials/post', locals: { post: post, type: '', id: index } %>
+  <%= link_to post.title, user_post_path(@user, post) %>
+<% end %>
+
+<%= link_to 'Show all user post', user_posts_path(@user) %>
