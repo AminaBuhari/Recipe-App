@@ -1,4 +1,4 @@
-class Food < ActiveRecord::Base
+class Food < ApplicationRecord
   has_many :recipe_foods dependent: :destroy
   belong_to :user
 
