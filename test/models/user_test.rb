@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSuport::TestCase
-  test "" do
-    
-  end
+  # test '' do
+  # end
 end

@@ -1,5 +1,4 @@
 class RecpieFoodTest < ActiveSuport::TestCase
-  test "" do
-    
-  end
+  # test '' do
+  # end
 end

@@ -3,5 +3,5 @@ class Recipe < Active::Base
   has_many :recipe_foods, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 25 }
-  validates :description, presence: true, length: { 350 }
+  validates :description, presence: true, length: { maximum: 350 }
 end
