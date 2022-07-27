@@ -24,16 +24,18 @@ default: &default
 development:
   <<: *default
   database: Recipe-App_development
+  database: Recipe_App_development
   host: localhost
   username: postgres
   password: postgres
-
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
+
   #username: Recipe-App
+  #username: Recipe_App
 
   # The password associated with the postgres role (username).
   #password:
@@ -62,6 +64,7 @@ development:
 test:
   <<: *default
   database: Recipe-App_test
+  database: Recipe_App_test
   host: localhost
   username: postgres
   password: postgres
@@ -91,3 +94,7 @@ production:
   database: Recipe-App_production
   username: Recipe-App
   password: <%= ENV["RECIPE-APP_DATABASE_PASSWORD"] %>
+
+  database: Recipe_App_production
+  username: Recipe_App
+  password: <%= ENV["RECIPE_APP_DATABASE_PASSWORD"] %>
