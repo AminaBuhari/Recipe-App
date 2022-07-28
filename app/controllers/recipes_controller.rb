@@ -4,7 +4,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    p current_user.name
+    @user = current_user
+    @recipes = Recipe.where(user_id: current_user)
+  end
+
+  def all
+    @recipes = Recipes.where(public: true)
   end
 
   # GET /recipes/1 or /recipes/1.json
