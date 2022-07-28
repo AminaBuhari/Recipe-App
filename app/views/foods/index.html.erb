@@ -1,14 +1,60 @@
-<p style="color: green"><%= notice %></p>
+# <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
+# <h1>Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
-</div>
+# <div id="foods">
+#   <% @foods.each do |food| %>
+#     <%= render food %>
+#   
+#   <% end %>
+# </div>
 
-<%= link_to "New food", new_food_path %>
+# <%= link_to "New food", new_user_food_path %>
+<h1 class="text-center">Foods</h1>
+  <%= link_to "Add Food", new_user_food_path, class: "btn btn-dark float-end m-4" %>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Measurement unit</th>
+        <th scope="col">Unit price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+          <%= render food %>
+      <% end %>
+    </tbody>
+  </table>
+  <p class="text-center my-5">You are not allowed to view other users food.</p>
+
+# <!-- inside app/views/welcome/index.html.erb -->  
+# <div class="collapse" id="navbarToggleExternalContent">
+#   <div class="bg-dark p-4">
+#     <h5 class="text-white h4">Collapsed content</h5>
+#     <span class="text-muted">Toggleable via the navbar brand.</span>
+#   </div>
+# </div>
+# <nav class="navbar navbar-dark bg-dark">
+#   <div class="container-fluid">
+#     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+#       <span class="navbar-toggler-icon"></span>
+#     </button>
+#   </div>
+# </nav>
+
+# <main>
+#   <section class="py-5 text-center container">
+#     <div class="row py-lg-5">
+#       <div class="col-lg-6 col-md-8 mx-auto">
+#         <h1 class="fw-light">Album example</h1>
+#         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+#         <p>
+#           <a href="#" class="btn btn-primary my-2">Main call to action</a>
+#           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+#         </p>
+#       </div>
+#     </div>
+#   </section>
+# </main>
