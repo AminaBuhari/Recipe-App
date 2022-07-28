@@ -1,4 +1,4 @@
-<%= form_with(model: recipe) do |form| %>
+<%= form_with(model: recipe, url: user_recipes_path, method: :post, local: true ) do |form| %>
   <% if recipe.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -11,7 +11,38 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <div class="f-1">
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name, class: "f-t" %>
+    </div>
+
+    <div class="f-1">
+      <%= form.label :preparation_time, style: "display: block" %>
+      <%= form.text_field :preparation_time, class: "f-t" %>
+    </div>
+
+    <div class="f-1">
+      <%= form.label :cooking_time, style: "display: block" %>
+      <%= form.text_field :cooking_time, class: "f-t" %>
+    </div>
+
+    <div class="f-1">
+      <%= form.label :description, style: "display: block", class: "form-label" %>
+      <%= form.text_area :description, class: "f-t" %>
+    </div>
+
+    <div class="f-1">
+      <%= form.label :steps, style: "display: block", class: "form-label" %>
+      <%= form.text_area :steps, class: "f-t", rows: 4 %>
+    </div>
+
+    <div class="f-1">
+      <%= form.label :public, style: "display: block" %>
+      <%= form.check_box :public, class: "c-1" %>
+    </div>
+
+    <div class="text-center">
+      <%= form.submit class: "btn btn-submit" %>
+    </div>
+
 <% end %>

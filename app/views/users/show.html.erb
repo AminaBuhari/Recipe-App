@@ -1,4 +1,5 @@
 <p style="color: green"><%= notice %></p>
+<%= render partial: 'partials/nav' %>
 
 <%= render @user %>
 
@@ -8,3 +9,42 @@
 
   <%= button_to "Destroy this user", @user, method: :delete %>
 </div>
+<section class="container my-5">
+  <div class="row">
+    <div class="user-image">
+    <%=image_tag("https://robohash.org/#{@user.id}.png", class: 'user--imagr', alt: 'user picture')%>
+    </div> 
+      
+      <div class="col-10 p-2">
+        <div class="d-flex justify-content-between">
+          <h3><%= @user.name %></h3>
+          <%= link_to "Edit", edit_user_path(@user), class: "text-decoration-none" %>
+        </div>
+      </div>
+  </div>
+  <div class="actions m-3 text-center">
+    <%= link_to "Account settings", edit_user_registration_path, class: "text-decoration-none btn btn-outline-primary" %>
+  </div>
+</section>
+
+<div class="mb-3 px-5">
+  <%= link_to "< Back", :back, class: "text-decoration-none" %>
+</div>
+
+
+
+
+# <main>
+#   <section class="py-5 text-center container">
+#     <div class="row py-lg-5">
+#       <div class="col-lg-6 col-md-8 mx-auto">
+#         <h1 class="fw-light">Album example</h1>
+#         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+#         <p>
+#           <a href="#" class="btn btn-primary my-2">Main call to action</a>
+#           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+#         </p>
+#       </div>
+#     </div>
+#   </section>
+# </main>
