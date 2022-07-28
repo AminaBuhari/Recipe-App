@@ -1,0 +1,18 @@
+<!-- inside app/views/welcome/index.html.erb -->  
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="d-flex" >
+    <h5 class="text-black h4"><%= link_to "Profile", user_path(current_user), class: "nav-item nav-link active text-black" %></h5>
+    <p class="header"><%= link_to "Foods", user_foods_path(current_user), class: "nav-item nav-link active text-black" %></p>
+    <p class="header"><a class="nav-item nav-link text-black" href="#">Recipes</a></p>
+    <p class="header"><a class="nav-item nav-link" href="#">Shopping-List</a></p>
+    <p class="header"><a class="nav-item nav-link disabled" href="#">Disabled</a></p>
+    
+  </div>
+</div>
