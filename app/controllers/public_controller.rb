@@ -8,3 +8,4 @@ class PublicsController < ApplicationController
   def all
     @recipes = Recipe.where(public: true)
   end
+end
