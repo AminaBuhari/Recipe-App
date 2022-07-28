@@ -15,4 +15,11 @@ class User < ApplicationRecord
   def authenticate(password)
     valid_password?(password)
   end
+    def admin?(admin)
+      :role == 'admin'
+    end
+  
+    def authenticate(password)
+      valid_password?(password)
+    end
 end
