@@ -1,9 +1,9 @@
-<h1>Public Recipes!</h1>
+<h1 class="text-center p-3">Public Recipes!</h1>
 
-<div>
+<div id="recipes" class="container list-group">
   <%@recipes.each do |recipe|%>
-    <div>
-      <div>
+    <div class="list-group-item mb-2 d-flex">
+      <div class="col-2 ps-2">
         <h2><%= recipe.name %></h2>
         <h3>By <%= recipe.user.name %></h3>
       </div>
