@@ -25,7 +25,7 @@ class FoodsController < ApplicationController
       @food = current_user.foods.new(food_params)
       @food.user_id = params[:user_id]
       if @food.save
-        format.html { redirect_to user_food_url(@food, current_user), notice: 'Food was successfully created.' }
+        format.html { redirect_to user_foods_path, notice: 'Food was successfully created.' }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -49,6 +49,7 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
+    @food = Food.find(params[:id])
     @food.destroy
 
     respond_to do |format|
