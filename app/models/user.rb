@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_many :recipe, dependent: :destroy
 
 
-    def admin?
+    def admin?(admin)
       :role == 'admin'
     end
   
