@@ -7,3 +7,12 @@
 <div>
   <%= link_to "Back to recipes", user_recipes_path %>
 </div>
+
+# Public Recipes
+<div class="user_recipes_list">
+  <h1><%= @user.name%>'s Recipes</h1>
+    <%= @recipes.each do |recipe| %>
+      <%= render partial: 'partials/nav' %>
+    <%end %>
+  </div>
+  
