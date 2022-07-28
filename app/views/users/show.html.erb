@@ -12,7 +12,7 @@
 <section class="container my-5">
   <div class="row">
     <div class="user-image">
-    <%=image_tag("https://source.unsplash.com/200x200/?img=#{@user.id}", class: 'user--imagr', alt: 'user picture')%>
+    <%=image_tag("https://robohash.org/#{@user.id}.png", class: 'user--imagr', alt: 'user picture')%>
     </div> 
       
       <div class="col-10 p-2">
