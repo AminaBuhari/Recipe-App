@@ -7,7 +7,10 @@
         <h2><%= recipe.name %></h2>
         <h3>By <%= recipe.user.name %></h3>
       </div>
-      
+      <div>
+        <p>Total food items: <%= recipe.recipe_foods.count %></p>
+        <p>Total price: $ <%= recipe.total_price %></p>
+      </div>
     </div>
   <%end%>
 </div>
