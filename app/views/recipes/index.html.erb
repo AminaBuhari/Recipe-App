@@ -13,11 +13,11 @@
     <li class="list-group-item mb-3 d-flex">
       <div class="col-2 ps-2">
         <p>
-          <%= link_to recipe.name, recipe_path(recipe), class: "text-decoration-none" %>
+          <%= link_to recipe.name, class: "text-decoration-none" %>
         </p>
         <% if can? :destroy, recipe%>
           <p>
-            <%= button_to "Remove", recipe, method: :delete, class: "btn bg-danger text-white" %>
+            <%= button_to "Remove", user_recipe_path(user_id: recipe.user.id, id:recipe.id), method: :delete, class: "btn bg-danger text-white" %>
           </p>
         <% end %>
       </div>
