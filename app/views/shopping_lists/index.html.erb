@@ -1,0 +1,32 @@
+<%= render partial: 'partials/nav' %>
+<div class="w-100 d-flex justify-content-center mt-4">
+<div class="w-75 d-flex flex-column">
+<h1 class="text-center">General Shopping List</h1>
+<div class="w-100 d-flex justify-content-between mt-4">
+  <div>Amount of food items needed: <%= @recipe.ingredients.count%></div>
+  <div>Total amount needed to buy: <span>$</span><%= @total_amount%></div>
+</div>
+<div class='mt-5 mb-3 w-100'>
+</div>
+
+
+<table class="table table-striped table-bordered ">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">quantity</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <tr>
+      <td><%= ingredient.food.name %></td>
+      <td><%= ingredient.quantity %>g</td>
+      <td><%= ingredient.quantity * ingredient.food.price %></td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+</div>
+</div>
