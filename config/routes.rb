@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :foods
     resources :recipes do
-      resources :recipes do
         resources :ingredients, controller: 'ingredients', except: [ :index, :show ]
       end
   end

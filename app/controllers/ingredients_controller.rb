@@ -1,70 +1,77 @@
 class IngredientsController < ApplicationController
-  before_action :set_ingredient, only: %i[ show edit update destroy ]
-
-  # GET /ingredients or /ingredients.json
-  def index
-    @ingredients = Ingredient.all
-  end
-
-  # GET /ingredients/1 or /ingredients/1.json
-  def show
-  end
+  before_action :authenticate_user!
+  before_action :set_edit, only: %i[show edit update destroy]
 
   # GET /ingredients/new
   def new
+    @user = current_user
+    @foods = current_user.foods.all
+    @recipe = current_recipe
     @ingredient = Ingredient.new
   end
 
-  # GET /ingredients/1/edit
-  def edit
-  end
 
-  # POST /ingredients or /ingredients.json
+  # POST /ingredients
   def create
-    @ingredient = Ingredient.new(ingredient_params)
-
+    food = Food.find(params[:food_id])
+    @ingredient = current_recipe.add_ingredient!(food, ingredient_params[:quantity])
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully created." }
-        format.json { render :show, status: :created, location: @ingredient }
+        format.html { redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Food ingredient was successfully added.' }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /ingredients/1 or /ingredients/1.json
+  # PATCH/PUT /ingredients/1
   def update
+    set_edit
+
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully updated." }
-        format.json { render :show, status: :ok, location: @ingredient }
+        format.html { redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /ingredients/1 or /ingredients/1.json
+  # DELETE /ingredients/1
   def destroy
-    @ingredient.destroy
+    current_ingredient.destroy!
 
     respond_to do |format|
-      format.html { redirect_to ingredients_url, notice: "Ingredient was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully removed.' }
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ingredient
-      @ingredient = Ingredient.find(params[:id])
+  
+  # GET /ingredients/1/edit
+  def edit
+    set_edit
+  
     end
 
-    # Only allow a list of trusted parameters through.
-    def ingredient_params
-      params.fetch(:ingredient, {})
-    end
+  private
+  def current_ingredient
+    Ingredient.find(params[:id])
+  end
+
+  def set_edit
+    @food = Food.find(params[:id])
+    @ingredient = Ingredient.find(params[:id])
+    @recipe = Recipe.find(current_ingredient.recipe_id)
+  end
+
+  def current_recipe
+    Recipe.find(params[:recipe_id])
+  end
+
+ 
+
+  # Only allow a list of trusted parameters through.
+  def ingredient_params
+    params.require(:ingredient).permit(:quantity)
+  end
 end
