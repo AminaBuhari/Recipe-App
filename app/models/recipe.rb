@@ -17,6 +17,6 @@ class Recipe < ApplicationRecord
   end
 
   def recipe_price
-   rand(1.5..254.4).round(2)
+    rand(1.5..254.4).round(2)
   end
 end
