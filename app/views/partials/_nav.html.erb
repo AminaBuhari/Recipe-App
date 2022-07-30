@@ -7,13 +7,13 @@
   </div>
 </nav>
 <div class="collapse" id="navbarToggleExternalContent">
-  <div class="d-flex" >
-    <h5 class="text-black h4"><%= link_to "Profile", user_path(current_user), class: "nav-item nav-link active text-black" %></h5>
-    <p class="header"><%= link_to "Foods", user_foods_path(current_user), class: "nav-item nav-link active text-black" %></p>
+  <div class="d-flex bg-warning justify-content-center p-5" style="height: 5px;">
+    <h5 class="text-black h4 "><%= link_to "Profile", user_path(current_user), class: "nav-item nav-link active text-black" %></h5>
+    <p class="header  text-center "><%= link_to "Foods", user_foods_path(current_user), class: "nav-pills nav-item nav-link activ text-black" %></p>
     <p class="header"><%= link_to "Recipes", user_recipes_path(current_user), class: "nav-item nav-link active text-black" %></p>
     <p class="header"><%= link_to "Public-Recipes", public_recipes_path, class: "nav-item nav-link active text-black" %></p>
-    <p class="header"><a class="nav-item nav-link" href="#">Shopping-List</a></p>
-    <p class="header"><a class="nav-item nav-link disabled" href="#">Disabled</a></p>
+    <p class="header"><a class="nav-item nav-link" href="user_recipe_shopping_lists_path">General-Shopping-List</a></p>
+
     
   </div>
 </div>
