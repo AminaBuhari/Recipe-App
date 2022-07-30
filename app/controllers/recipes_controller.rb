@@ -9,8 +9,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    
-   end
+  end
 
   # GET /recipes/new
   def new
@@ -22,11 +21,10 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-   
     @recipe = Recipe.new(recipe_params)
 
     respond_to do |format|
-      @recipe=current_user.recipe.new(recipe_params)
+      @recipe = current_user.recipe.new(recipe_params)
       @recipe.user_id = params[:user_id]
       if @recipe.save
         format.html { redirect_to user_recipes_url, notice: 'Recipe was successfully created.' }

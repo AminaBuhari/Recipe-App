@@ -10,14 +10,16 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
   end
 
-
   # POST /ingredients
   def create
     food = Food.find(params[:food_id])
     @ingredient = current_recipe.add_ingredient!(food, ingredient_params[:quantity])
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Food ingredient was successfully added.' }
+        format.html {
+          redirect_to user_recipe_path(current_user, current_recipe.id),
+                      notice: 'Food ingredient was successfully added.'
+        }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -30,7 +32,9 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html { redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully updated.' }
+        format.html {
+          redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully updated.'
+        }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -42,18 +46,19 @@ class IngredientsController < ApplicationController
     current_ingredient.destroy!
 
     respond_to do |format|
-      format.html { redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully removed.' }
+      format.html {
+        redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully removed.'
+      }
     end
   end
 
-  
   # GET /ingredients/1/edit
   def edit
     set_edit
-  
-    end
+  end
 
   private
+
   def current_ingredient
     Ingredient.find(params[:id])
   end
@@ -67,8 +72,6 @@ class IngredientsController < ApplicationController
   def current_recipe
     Recipe.find(params[:recipe_id])
   end
-
- 
 
   # Only allow a list of trusted parameters through.
   def ingredient_params
