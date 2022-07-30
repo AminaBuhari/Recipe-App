@@ -12,7 +12,7 @@
 <%= render @recipe %>
 
 <div class="container mt-5 mb-2 d-flex justify-content-between ">
-  <%= link_to "Gererate shopping list", class: "btn btn-warning" %>
+  <%= link_to "Shopping list", user_recipe_shopping_lists_path(recipe_id: @recipe), class: "btn btn-success" %>
   <% if can? :create, @recipe%>
     <%= link_to "Add ingredient", new_user_recipe_ingredient_path(recipe_id: @recipe), class: "btn btn-primary" %>
   <% end %>

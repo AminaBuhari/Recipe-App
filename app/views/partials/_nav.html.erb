@@ -12,8 +12,8 @@
     <p class="header"><%= link_to "Foods", user_foods_path(current_user), class: "nav-item nav-link active text-black" %></p>
     <p class="header"><%= link_to "Recipes", user_recipes_path(current_user), class: "nav-item nav-link active text-black" %></p>
     <p class="header"><%= link_to "Public-Recipes", public_recipes_path, class: "nav-item nav-link active text-black" %></p>
-    <p class="header"><a class="nav-item nav-link" href="#">Shopping-List</a></p>
-    <p class="header"><a class="nav-item nav-link disabled" href="#">Disabled</a></p>
+    <p class="header"><%= link_to "General Shopping List",    user_recipe_shopping_lists_path(recipe_id: @recipe), class: "nav-item nav-link active text-black" %></p>
+ 
     
   </div>
 </div>
