@@ -1,1 +1,50 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div>
+  <%= link_to "Edit this recipe", edit_user_recipe_path(@recipe) %> |
+  <%= link_to "Back to recipes", user_recipes_path %>
+
+ 
+</div>
+<%= render @recipe %>
+
+<div class="container mt-5 mb-2 d-flex justify-content-between ">
+  <%= link_to "Gererate shopping list", class: "btn btn-warning" %>
+  <% if can? :create, @recipe%>
+    <%= link_to "Add ingredient", new_user_recipe_ingredient_path(recipe_id: @recipe), class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+<section class="container mb-5">
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th scope="col-3"><h4>Food</h1></th>
+        <th scope="col-3"><h4>Quantity</h1></th>
+        <th scope="col-3"><h4>Value</h4></th>
+        <% if can? :create, @recipe%>
+          <th scope="col-3" class="table-action"><h4>Action</h1></th>
+        <% end %>
+      </tr>
+      <tbody>
+    <% @recipe.ingredients.includes([:food]).each do |ingredient| %>
+      <tr>
+        <th scope="row"><%= ingredient.food.name %></th>
+        <td><%= ingredient.quantity %> <b>g</b></td>
+        <td><b>$</b> <%= ingredient.food.price * ingredient.quantity %></td>
+        <% if can? :create, @recipe%>
+          <td class="d-flex justify-content-center">
+            <%= link_to "Modify", edit_user_recipe_ingredient_path(recipe_id:@recipe.id), class: "btn btn-outline-primary btn-sm mx-2" %>
+            <%= button_to "Remove", user_recipe_ingredient_path(ingredient.id, @recipe.id), method: :delete, data: { confirm: "You can't redo this action afterwards" }, :class => "btn btn-outline-danger btn-sm" %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+    </thead>
+    
+  </table>
+</section>
 
