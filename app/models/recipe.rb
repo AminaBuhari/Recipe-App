@@ -15,4 +15,8 @@ class Recipe < ApplicationRecord
       ingredients.create!(food:, quantity:) unless present
     end
   end
+
+  def recipe_price
+   rand(1.5..254.4).round(2)
+  end
 end

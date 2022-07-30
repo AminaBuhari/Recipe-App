@@ -8,8 +8,8 @@
         <h4>By:<%= recipe.user.name %></h4>
       </div>
       <div class="text-end col-sm-9">
-        <h5>Total food items: <%=%></h5>
-        <h5>Total price: $ <%=  %></h5>
+        <h5>Total food items: <%=recipe.foods.count %></h5>
+        <h5>Total price: $ <%= recipe.recipe_price %></h5>
       </div>
     </div>
   <%end%>
