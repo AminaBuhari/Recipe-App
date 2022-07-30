@@ -16,10 +16,10 @@ class IngredientsController < ApplicationController
     @ingredient = current_recipe.add_ingredient!(food, ingredient_params[:quantity])
     respond_to do |format|
       if @ingredient.save
-        format.html {
+        format.html do
           redirect_to user_recipe_path(current_user, current_recipe.id),
                       notice: 'Food ingredient was successfully added.'
-        }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -32,9 +32,9 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html {
+        format.html do
           redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully updated.'
-        }
+        end
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -46,9 +46,9 @@ class IngredientsController < ApplicationController
     current_ingredient.destroy!
 
     respond_to do |format|
-      format.html {
+      format.html do
         redirect_to user_recipe_path(current_user, current_recipe.id), notice: 'Ingredient was successfully removed.'
-      }
+      end
     end
   end
 
