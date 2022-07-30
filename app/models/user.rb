@@ -8,15 +8,7 @@ class User < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :recipe, dependent: :destroy
 
-  def admin?
-    :role == 'admin'
-  end
-
-  def authenticate(password)
-    valid_password?(password)
-  end
-
-  def admin?(_admin)
+  def admin?(admin)
     :role == 'admin'
   end
 

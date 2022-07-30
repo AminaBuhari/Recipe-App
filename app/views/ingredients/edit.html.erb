@@ -1,0 +1,26 @@
+
+
+<section class="container col-8">
+    <%= form_with(model: @ingredient, url: user_recipe_ingredient_url, method: :patch, local: true,)  do |form| %>
+      <div class="mb-3">
+      <strong><%= form.label "Food", style: "display: block" %></strong>
+          <input type="text" value="<%= @ingredient.food.name%>" class="form-control" disabled>
+      </div>
+
+      <div class="mb-5 w-100">
+            <strong><%= form.label :quantity, "Quantity (grams)", style: "display: block" %></strong>
+            <%= form.number_field :quantity, placeholder: "Quantity", required: true, class: "form-control" %>
+      </div>
+
+      <div class="text-center">
+            <%= form.submit "Update Ingredient", class: "btn btn-primary" %>
+      </div>
+
+    <% end %>
+</section>
+
+<br>
+
+<div class="mb-3 px-5 ">
+  <%= link_to "Back to Recipe", user_recipe_path(@recipe), class: "text-decoration-none" %>
+</div>

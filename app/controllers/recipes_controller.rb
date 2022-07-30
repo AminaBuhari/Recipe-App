@@ -13,7 +13,8 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+  end
 
   # GET /recipes/new
   def new
@@ -57,13 +58,13 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to user_recipes_path
-    # respond_to do |format|
-    #   format.html { redirect_to user_recipes_path, notice: 'Recipe was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    respond_to do |format|
+      format.html { redirect_to user_recipes_path, notice: 'Recipe was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
+  
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -73,6 +74,6 @@ class RecipesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id, :steps)
   end
 end
