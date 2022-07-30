@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+
 <%= render partial: 'partials/nav' %>
 <h1 class="text-center">Foods</h1>
   <%= link_to "Add Food", new_user_food_path, class: "btn btn-primary my-2 float-end m-4" %>
@@ -17,5 +17,5 @@
       <% end %>
     </tbody>
   </table>
-  <p class="text-center my-5">You are not allowed to view other users food.</p>
+  <p class="text-center my-5">You can only view your food.</p>
 

@@ -1,19 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
-<%=current_user.id %>
-<%=current_user.name %>
+
+<h1><%=current_user.name %>, welcome to the Recipe-App</h1>
 
 <div id="users">
   <% @users.each do |user| %>
-    <%= render user %>
+   
     <p>
-      <%= link_to "Show this user", user %>
+      <%= link_to "click here to go to your profile", user %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New user", new_user_path %>
 
 
 
