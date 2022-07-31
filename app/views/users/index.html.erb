@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1><%=current_user.name %>, welcome to the Recipe-App</h1>
+
+<div id="users">
+  <% @users.each do |user| %>
+   
+    <p>
+      <%= link_to "click here to go to your profile", user %>
+    </p>
+  <% end %>
+</div>
+
+
+
+

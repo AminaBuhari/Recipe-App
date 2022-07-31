@@ -1,0 +1,14 @@
+<div id="<%= dom_id food %>">
+<tr>
+    <td scope="row"><%= food.name %></td>
+    <td><%= food.measurement_unit %></td>
+    <td><%= food.price %></td>
+    <td  class="btn-secondary my-2">
+      <%= button_to "Delete", 
+        user_food_path(food.user_id, food.id),
+        method: :delete
+      %>
+    </td>
+  </tr>
+</div>
+
