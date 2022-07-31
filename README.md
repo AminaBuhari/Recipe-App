@@ -39,10 +39,10 @@ run the following after cloning the repository
 - `rspec`
 
 ## Screenshots 
-![public recipes ](https://user-images.githubusercontent.com/66526480/181995144-24ac4cf1-d9c8-480b-b3fc-02f28c400d28.png)
+
 ![general shopping list ](https://user-images.githubusercontent.com/66526480/181995145-d2834ffc-4c41-4fd4-b210-8394aa508920.png)
 ![recipe page](https://user-images.githubusercontent.com/66526480/181995146-92c2d41c-6670-4e3a-8393-9047f3c7921c.png)
-![sapa mode](https://user-images.githubusercontent.com/66526480/181995147-b078d536-a2a9-432a-8725-e4e37e739982.png)
+![public recipes ](https://user-images.githubusercontent.com/66526480/181995144-24ac4cf1-d9c8-480b-b3fc-02f28c400d28.png)
 ![recipe index page](https://user-images.githubusercontent.com/66526480/181995149-6dc34177-b4d3-44f3-9a5d-430f123168b3.png)
 ![food index page](https://user-images.githubusercontent.com/66526480/181995150-ae06951c-ee18-4f85-9009-0fddaeb3e44d.png)
 
